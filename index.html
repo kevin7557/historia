@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestra Historia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f5;
+      color: #333;
+      text-align: center;
+      margin: 0;
+      padding: 50px 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 30px;
+      font-weight: bold;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    #contenedor-imagenes {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      height: 250px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .imagen-personaje {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #007bff;
+      position: absolute;
+      opacity: 0;
+      transition: transform 1s ease, opacity 1s ease;
+    }
+
+    #imagen-mariana {
+      left: -300px;
+    }
+
+    #imagen-kevin {
+      right: -300px;
+    }
+
+    .mostrar {
+      opacity: 1;
+    }
+
+    .mostrar-mariana {
+      transform: translateX(300px);
+    }
+
+    .mostrar-kevin {
+      transform: translateX(-300px);
+    }
+
+    #historia {
+      font-size: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border: 2px solid #007bff;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    #historia.mostrar-texto {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background-color: #0056b3;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Nuestra Historia</h1>
+
+  <div id="contenedor-imagenes">
+    <img id="imagen-mariana" class="imagen-personaje" src="mariana.jpg" alt="Mariana">
+    <img id="imagen-kevin" class="imagen-personaje" src="kevinjpg.jpeg" alt="Kevin">
+  </div>
+
+  <div id="historia" class="mostrar-texto">Hola, esta es nuestra historia...</div>
+
+  <button onclick="mostrarSiguienteParte()">Siguiente</button>
+
+  <script>
+    const historia = [
+      "Ella es Mariana",
+      "Y él es Kevin",
+      "Un día se conocieron y todo cambió",
+      "Pero el destino los separó...",
+      "Aun así, ella siempre fue la mujer de sus ojos"
+    ];
+
+    let indice = 0;
+
+    function mostrarSiguienteParte() {
+      const historiaDiv = document.getElementById("historia");
+
+      // Oculta el texto con una mini transición antes de cambiar
+      historiaDiv.classList.remove('mostrar-texto');
+      setTimeout(() => {
+        if (indice < historia.length) {
+          historiaDiv.textContent = historia[indice];
+          historiaDiv.classList.add('mostrar-texto');
+
+          if (indice === 0) {
+            document.getElementById("imagen-mariana").classList.add("mostrar", "mostrar-mariana");
+          } else if (indice === 1) {
+            document.getElementById("imagen-kevin").classList.add("mostrar", "mostrar-kevin");
+          }
+          indice++;
+        } else {
+          historiaDiv.textContent = "Fin de la historia. Gracias por leer.";
+          historiaDiv.classList.add('mostrar-texto');
+        }
+      }, 300); // Da un pequeño espacio para que el fade out sea visible
+    }
+
+  </script>
+
+</body>
+</html>
