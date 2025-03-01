@@ -38,8 +38,8 @@
     }
 
     .imagen-personaje {
-      width: 200px;
-      height: 200px;
+      width: 400px;
+      height: 400px;
       object-fit: cover;
       border-radius: 50%;
       border: 4px solid #007bff;
@@ -117,24 +117,36 @@
 </head>
 <body>
 
-  <h1>Nuestra Historia</h1>
+  <h1>Esta es nuestra historia</h1>
 
   <div id="contenedor-imagenes">
     <img id="imagen-mariana" class="imagen-personaje" src="mariana.jpg" alt="Mariana">
     <img id="imagen-kevin" class="imagen-personaje" src="kevinjpg.jpeg" alt="Kevin">
   </div>
 
-  <div id="historia" class="mostrar-texto">Hola, esta es nuestra historia...</div>
+  <div id="historia" class="mostrar-texto">dele click para iniciar la historia</div>
 
   <button onclick="mostrarSiguienteParte()">Siguiente</button>
 
   <script>
     const historia = [
       "Ella es Mariana",
+      "ella tiene los ojos y el rostro mas hermoso de todos",
       "Y él es Kevin",
-      "Un día se conocieron y todo cambió",
-      "Pero el destino los separó...",
-      "Aun así, ella siempre fue la mujer de sus ojos"
+      "kevin es medio aguevado",
+      "un dia Kevin y Mariana se conocieron",
+      "y desde que Kevin vio esa princesa se enamoro",
+      "pero por Kevin ser tan inmaduro se alejaron",
+      "pero desde ese momento Kevin se dio cuenta que tenia que intentarlo todo, porque no la quiere perder",
+      "mariana es la mujer de los sueños de kevin",
+      "y kevin se tiene que convertir en el hombre de los sueños de mariana",
+      "todo cuento de princesas tiene un final",
+      "pero como kevin es tan bobo no va a aceptar ese final y va a hacerlo todo por cambiarlo",
+      "asi que kevin va a intentarlo todo para que vuelva a funcionar",
+      "y volver a recuperar la confianza de mariana",
+      "asi que kevin le pide ayuda a Dios todos los dias para que lo ayude y oriente",
+      "y esta historia pueda tener un final muy lindo",
+      "asi que la historia hay que seguirla escribiendo",
     ];
 
     let indice = 0;
@@ -151,12 +163,12 @@
 
           if (indice === 0) {
             document.getElementById("imagen-mariana").classList.add("mostrar", "mostrar-mariana");
-          } else if (indice === 1) {
+          } else if (indice === 2) {
             document.getElementById("imagen-kevin").classList.add("mostrar", "mostrar-kevin");
           }
           indice++;
         } else {
-          historiaDiv.textContent = "Fin de la historia. Gracias por leer.";
+          historiaDiv.textContent = "continuara...";
           historiaDiv.classList.add('mostrar-texto');
         }
       }, 300); // Da un pequeño espacio para que el fade out sea visible
