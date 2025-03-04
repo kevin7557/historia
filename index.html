@@ -68,6 +68,16 @@
       transform: translateX(-300px);
     }
 
+    #corazon {
+      position: absolute;
+      top: -100px;
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      opacity: 0;
+      transition: transform 1s ease, opacity 1s ease;
+    }
+
     #historia {
       font-size: 20px;
       background-color: #fff;
@@ -117,40 +127,45 @@
 </head>
 <body>
 
-  <h1>Esta es nuestra historia</h1>
+  <h1>Nuestra historia</h1>
 
   <div id="contenedor-imagenes">
     <img id="imagen-mariana" class="imagen-personaje" src="mariana.jpg" alt="Mariana">
     <img id="imagen-kevin" class="imagen-personaje" src="kevinjpg.jpeg" alt="Kevin">
+    <img id="corazon" src="corazon.jpeg" alt="Corazón">
   </div>
 
-  <div id="historia" class="mostrar-texto">dele click para iniciar la historia</div>
+  <div id="historia" class="mostrar-texto">dele click </div>
 
   <button onclick="mostrarSiguienteParte()">Siguiente</button>
 
   <script>
     const historia = [
       "Ella es Mariana",
-      "mariana es una princesa",
+      "mariana es la princesa mas hermosa de todas",
       "ella tiene los ojos y el rostro mas hermosos del mundo",
       "Y el es Kevin",
       "kevin es medio aguevado",
-      "un dia Kevin y Mariana se conocieron",
+      "un dia muy especial Kevin y Mariana se conocieron",
       "y desde que Kevin vio esa princesa sintio algo que jamas habia sentido",
-      "pero por Kevin ser tan inmaduro se alejaron",
+      "pero por Kevin ser tan inmaduro se alejaron :(",
       "ahora kevin no sabe que deberia hacer",
-      "mariana es la mujer de los sueños de kevin",
+      "mariana es la mujer de los sueños de kevin, es lo que tanto le pidio a Dios",
       "y kevin se tiene que convertir en el hombre de los sueños de mariana",
-      "entonces kevin le pide todos los dias a Dios que lo ilumine",
-      "y que le diga el camino a seguir para que vuelva a funcionar",
+      "ahora kevin le pide ayuda todos los dias a Dios para que lo ilumine",
+      "y le diga el camino correcto a seguir para que vuelva a funcionar",
       "y aunque el no sepa que deberia hacer, el lo quiere seguir intentando hasta que",
       "mariana vuelva a recuperar la confianza y lo quiera volver a intentar",
-      "porque kevin no se imagina no poder ver esos ojitos tan hermosos que un dia lo enamoraron",
+      "porque kevin no se imagina no poder volver a ver esos ojitos tan hermosos que un dia lo enamoraron",
+      "y no se imagina sus dias sin poder saber de esa niña tan increible, con su personalidad super increible",
+      "porque desde que la conocio algo cambio en el",
       "y aunque toda historia de princesas tiene un final",
-      "el no quiere que ese sea el final",
-      "asi que kevin lo va a intentar porque el no quiere ese final",
-      "asi que kevin quiere saber cual es el desenlace",
-      "para que la historia se pueda seguir escribiendo",
+      "el no quiere que el final sea alejarse y no poder saber de ella",
+      "asi que kevin lo va a intentar para poder cambiar ese final",
+      "asi que kevin quiere saber cual es el desenlace de su historia",
+      "pero el va a ser muy paciente y se convertira en el hombre de los sueños de su princesa",
+      "esperando los tiempos de Dios porque el sabe que tiene preparado algo muy lindo",
+      "asi que esta historia hay que seguirla escribiendo",
     ];
 
     let indice = 0;
@@ -169,6 +184,10 @@
             document.getElementById("imagen-mariana").classList.add("mostrar", "mostrar-mariana");
           } else if (indice === 3) {
             document.getElementById("imagen-kevin").classList.add("mostrar", "mostrar-kevin");
+          } else if (indice === 5) {
+            const corazon = document.getElementById("corazon");
+            corazon.style.opacity = 1;
+            corazon.style.transform = "translateY(300px)";
           }
           indice++;
         } else {
